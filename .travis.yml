@@ -1,6 +1,6 @@
 sudo: required
 services:
-        - docker
+- docker
 language: bash
 script:
 # prepare qemu
@@ -9,10 +9,10 @@ script:
 - docker build -t kdautrey/rpi-mono .
 # push image
 - >
-if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-        docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-        TAG=$(date +"%d-%m-%y")
-        docker tag kdautrey/rpi-mono kdautrey/rpi-mono:$TAG
-        docker push kdautrey/rpi-mono:$TAG
-        docker push kdautrey/rpi-mono
-fi
+  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    TAG=$(date +"%d-%m-%y")
+    docker tag kdautrey/rpi-mono kdautrey/rpi-mono:$TAG
+    docker push kdautrey/rpi-mono:$TAG
+    docker push kdautrey/rpi-mono
+  fi
