@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian
+FROM balenalib/rpi-raspbian
 MAINTAINER keltakmaster
 
 RUN \
